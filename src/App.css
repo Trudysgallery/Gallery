@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  font-family: 'Dancing Script', cursive;
+  font-family: 'Sacramento', cursive;
 }
 
 .App-logo {
@@ -21,7 +23,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: orange;
 }
 
 .App-link {
@@ -36,3 +38,27 @@
     transform: rotate(360deg);
   }
 }
+
+.nav-item {
+  background: transparent;
+  /* background: linear-gradient(90deg, rgb(110,92,254) 0%, rgba(73,63,252,1) 100%); */
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  text-decoration: none;
+  color: blueviolet;
+}
+
+.nav-item:focus, :hover {
+  color: black;
+}
+
+.navigation-sub {
+  justify-content: space-evenly;
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+
