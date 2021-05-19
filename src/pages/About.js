@@ -1,9 +1,10 @@
 import React from "react";
+import "./About.css"
 
 function About(props) {
   return (
     <div>
-      <h1>This is the About HTML</h1>
+      <p className="aboutBlurb">Trudy was my beloved childhood cat who I miss very much. She inspires all of my art.</p>
     </div>
   );
 }

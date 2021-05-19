@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Link } from 'react-router-dom';
 import About from './pages/About.js'; 
 import Contact from './pages/Contact.js'; 
 import Gallery from './pages/Gallery.js'; 
+import GalleryStatic from './pages/GalleryStatic.js'; 
+
 import Welcome from './components/Welcome/Welcome.js'
 
 
@@ -22,7 +24,7 @@ function App() {
         </div>
         {/* Set up the Router */}
         <Route exact path="/" component={Gallery} />
-        <Route path="/articles" component={Contact} />
+        <Route path="/contact" component={Contact} />
         <Route path="/about" component={About} />
       </div>
     </BrowserRouter>

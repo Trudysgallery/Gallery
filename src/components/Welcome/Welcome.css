@@ -4,7 +4,7 @@
 .welcomeHeaderIcon {
     display: inline-block;
     height: auto;
-    max-width: 10%;
+    max-width: 7%;
 }
 .welcomeHeaderIconHead {
     transform: scaleX(-1);
