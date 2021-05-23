@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
     "bootstrap": "^5.0.1",
+    "easybase-react": "^2.1.2",
     "formik": "^2.2.6",
     "framer-motion": "^4.1.16",
     "querystring": "^0.2.1",
