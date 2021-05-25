@@ -1,0 +1,10 @@
+.CarouselImg {
+    height: 500px;
+    border-radius: 10%;
+  }
+  .figure {
+      margin: 5px !important;
+    }
+    .HomeCarousel {
+      text-align: center;
+    }
