@@ -4,36 +4,37 @@ import AliceCarousel from 'react-alice-carousel';
 import { useEasybase } from 'easybase-react';
 import './Gallery.css';
 import "react-alice-carousel/lib/alice-carousel.css";
+import { setIn } from 'formik';
 
 
 function Gallery() {
-  const [easybaseData, setEasybaseData] = useState([]);
+  const [easybaseData, setEasybaseData] = useState([]); //Remember to set array
+  const [initialized, setInitialized] = useState(false);
   const handleDragStart = (e) => e.preventDefault();
   const handleInitialized = (() => console.log("in handleInitialized"));
   const { db } = useEasybase();
 
   const mounted = async() => {
-    console.log("in mounted");
     const ebData = await db("ARTWORK").return().all();
-    console.log("returned from await");
     setEasybaseData(ebData);
   }
 
   useEffect(() => {
-    console.log("in useEffect");
     mounted();
+    setInitialized(true);
+    // return function cleanup() { 
+    //   setInitialized(false);
+    // };
   },[]);
 
+  if(!initialized){
+    return <div></div>;
+  }
   return (
     <div className="Gallery">
-      {easybaseData.map((i,index) =>
-        <img key={index} className="CarouselImg" src={i.Galleryimage} alt={i.Title} onDragStart={handleDragStart}></img>
+      {easybaseData.map((i) =>
+        <img className="GalleryImage" src={i.galleryimage} alt={i.title} onDragStart={handleDragStart}></img>
       )}
-      {/* <AliceCarousel className="Carousel" infinite autoPlay mouseTracking autoHeight keyboardNavigation disableButtonsControls 
-      onInitialized={handleInitialized} autoPlayInterval={5000} 
-      items={easybaseData.map((i) =>
-        <img className="CarouselImg" src={i.Galleryimage} alt={i.Title} onDragStart={handleDragStart}></img>
-      )}/> */}
     </div>
   );
 }
