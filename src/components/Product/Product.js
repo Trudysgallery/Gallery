@@ -1,32 +1,46 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { useEasybase } from 'easybase-react';
-import './Product.css';
-import {AddToCartButton} from '../AddToCartButton/AddToCartButton';
+import { queryProduct, fetchProductFromData } from '../../Utils/EasyBaseUtils';
+import { AddToCartButton } from '../AddToCartButton/AddToCartButton';
 import { useParams } from "react-router-dom";
+import './Product.css';
 
-function Product(galleryData) {
-    console.log("in Product with galleryData:", galleryData);
+
+function Product(props) {
+    const galleryData = props.galleryData;
     const pid = useParams().productId;
-    const [currentProduct, setCurrentProduct] = useState([]); //Remember to set array
+    console.log("in Product with galleryData:", galleryData, "and pid: ", pid);
+    const [currentProduct, setCurrentProduct] = useState();
     const [initialized, setInitialized] = useState(false);
-    const handleInitialized = (() => console.log("in handleInitialized"));
+    //const handleInitialized = (() => console.log("in handleInitialized"));
     const { db, e } = useEasybase();
     
-    const queryData = async() => {
-        console.log("in Product.queryData")
-        const queriedProduct = await db("ARTWORK").return().where(e.eq("id",pid)).one();
-        setCurrentProduct(queriedProduct);
-    }
-
     useEffect(() => {
-        queryData();
-        // return function cleanup() { 
-        setInitialized(true);
-        // };
-      },[]);
+        console.log("in Product.useEffect");
+        if(galleryData.length>0){
+            setCurrentProduct(fetchProductFromData(galleryData, pid));
+            console.log("Initializing after setting product from data");
+            setInitialized(true);
+        } else {
+            queryProduct(db,e,pid).then((queriedProduct) => {
+                setCurrentProduct(queriedProduct);
+                console.log("completed queryProduct");
+                setInitialized(true);
+            }).catch(
+                e => {
+                    alert("There was an error fetching this product. Please try again from the Gallery!");
+                    console.log("Product data cannot be found right now ,error: ", e);
+                }
+            );
+        }
+        // return function cleanup(){};
+      },[]
+    );
+
     //Pass the state in as props from the gallery. Use routing to set the URL as /products/title
     //How can we ensure that accessing the URL directly also works? Need to have querying here in case the user didn't come from the gallery.
     if(!initialized){
+        console.log("In product !initialized");
         return <div></div>;
     }
     return(
