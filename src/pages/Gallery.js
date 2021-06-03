@@ -1,30 +1,29 @@
 import React,  { useState, useEffect } from 'react';
-import images from '../components/images.js';
-import AliceCarousel from 'react-alice-carousel';
 import { useEasybase } from 'easybase-react';
+import { Link, Route, Switch, useRouteMatch, useParams } from 'react-router-dom';
+import { queryGallery } from '../Utils/EasyBaseUtils';
+import Product from 'components/Product/Product';
 import './Gallery.css';
-import "react-alice-carousel/lib/alice-carousel.css";
-import { setIn } from 'formik';
 
+//Inspiration from https://www.sitepoint.com/react-router-complete-guide/
 
 function Gallery() {
+  console.log("Here in Gallery");
   const [easybaseData, setEasybaseData] = useState([]); //Remember to set array
+  console.log("ebData: ", easybaseData);
   const [initialized, setInitialized] = useState(false);
   const handleDragStart = (e) => e.preventDefault();
-  const handleInitialized = (() => console.log("in handleInitialized"));
+  //const handleInitialized = (() => console.log("in handleInitialized"));
   const { db } = useEasybase();
 
-  const mounted = async() => {
-    const ebData = await db("ARTWORK").return().all();
-    setEasybaseData(ebData);
-  }
-
   useEffect(() => {
-    mounted();
-    setInitialized(true);
-    // return function cleanup() { 
-    //   setInitialized(false);
-    // };
+    queryGallery(db).then(
+      (galleryData) => {
+        setEasybaseData(galleryData);
+        setInitialized(true);
+      } 
+    );
+    // return function cleanup() {};
   },[]);
 
   if(!initialized){
@@ -32,9 +31,20 @@ function Gallery() {
   }
   return (
     <div className="Gallery">
-      {easybaseData.map((i) =>
-        <img className="GalleryImage" src={i.galleryimage} alt={i.title} onDragStart={handleDragStart}></img>
-      )}
+      <Switch>
+        <Route path="/gallery/:productId">
+          <Product galleryData={easybaseData}/>
+        </Route>
+        <Route exact path="/gallery">
+          <div className="GalleryImages">
+            {easybaseData.map((i) =>
+              <Link key={i.id} to={`/gallery/${i.id}`}>
+                <img className="GalleryImage" src={i.galleryimage} alt={i.title} onDragStart={handleDragStart}></img>
+              </Link>
+            )}
+            </div>
+          </Route>
+        </Switch>
     </div>
   );
 }
