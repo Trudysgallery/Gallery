@@ -1,4 +1,4 @@
-.GalleryImages {
+.gallery-images {
     margin-top: 25px;
     display: grid;
     justify-items: center;
@@ -6,7 +6,7 @@
     grid-template-columns: repeat(2, minmax(100px, 1fr));
 }
 
-.GalleryImage {
+.gallery-image {
   height: 400px;
   border-radius: 10%;
 }

@@ -4,7 +4,9 @@ import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 import About from './pages/About.js'; 
 import Contact from './pages/Contact.js'; 
 import Gallery from './pages/Gallery.js'; 
-import Product from './pages/Product/Product'
+import Product from './pages/Product/Product';
+import Cart from './components/ShoppingCart/Cart';
+import NavBar from './components/Navbar/NavBar';
 import HomeCarousel from './components/HomeCarousel/HomeCarousel.js'; 
 import { EasybaseProvider } from 'easybase-react';
 import ebconfig from './ebconfig';
@@ -19,9 +21,13 @@ function App() {
   function handleAddToShoppingCart(newItem){
     setShoppingCart((oldCart) =>[...oldCart, newItem]);
   }
-  //Consider removal along with duplicate items
-  // function handleremoveFromShoppingCart(itemToRemove)
-  // }
+
+  function handleremoveFromShoppingCart(indexToRemove){
+    console.log("in App.handleremoveFromShoppingCart with cart", shoppingCart);
+    const newCart = shoppingCart.splice(indexToRemove,1);
+    console.log("Going to remove index", indexToRemove, " with newCart: ", newCart);
+    setShoppingCart(newCart);
+  }
 
   return (
     <EasybaseProvider ebconfig={ebconfig}>
@@ -30,13 +36,7 @@ function App() {
           <Link to="/">
             <Welcome />
           </Link>
-          <div className="Navigation">
-            <div className="navigation-sub">
-              <Link to="/gallery" className="nav-item">Gallery</Link>
-              <Link to="/about" className="nav-item">About</Link>
-              <Link to="/contact" className="nav-item">Contact Me</Link>
-            </div>
-          </div>
+          <NavBar cartSize={shoppingCart.length}/>
           <Switch>
             <Route path="/gallery/:productId">
               <Product data={allProductData} onAddToCart={handleAddToShoppingCart}/>
@@ -49,6 +49,9 @@ function App() {
             </Route>
             <Route path="/contact">
               <Contact/> 
+            </Route>
+            <Route path="/cart">
+              <Cart currentCart={shoppingCart} onRemoveFromCart={handleremoveFromShoppingCart}/>
             </Route>
             <Route exact path="/">
               <HomeCarousel currentSlide={currentSlide} onSlideChanged={setCurrentSlide}/>
