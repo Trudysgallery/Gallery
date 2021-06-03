@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useEasybase } from 'easybase-react';
 import { queryProduct, fetchProductFromData } from '../../Utils/EasyBaseUtils';
-import AddToCartButton from '../../components/ShoppingCart/AddToCartButton';
 import { useParams } from "react-router-dom";
 import './Product.css';
 
