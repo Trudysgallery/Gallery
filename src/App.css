@@ -1,18 +1,11 @@
 .App {
   text-align: center;
-  font-family: 'Dancing Script', cursive;
   font-family: 'Sacramento', cursive;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .App-header {
@@ -30,6 +23,12 @@
   color: #61dafb;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -38,27 +37,3 @@
     transform: rotate(360deg);
   }
 }
-
-.nav-item {
-  background: transparent;
-  /* background: linear-gradient(90deg, rgb(110,92,254) 0%, rgba(73,63,252,1) 100%); */
-  height: 80px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 3rem;
-  text-decoration: none;
-  color: blueviolet;
-}
-
-.nav-item:focus, :hover {
-  color: black;
-}
-
-.navigation-sub {
-  justify-content: space-evenly;
-  display: flex;
-  flex-wrap: wrap;
-  
-}
-

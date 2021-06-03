@@ -1,0 +1,21 @@
+.shopping-cart-box {
+    margin: 0 auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 800px;
+    background-color: lightgray;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.shopping-cart-items {
+    display: grid;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.shopping-cart-empty {
+    font-size: 48px;
+    margin-top: 30px;
+    color: blueviolet;
+}

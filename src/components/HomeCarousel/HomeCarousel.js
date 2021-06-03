@@ -35,15 +35,15 @@ function HomeCarousel(props) {
     return <div></div>;
   }
   return (
-    <div className="HomeCarousel">
-      <AliceCarousel className="Carousel"
+    <div className="home-carousel-page">
+      <AliceCarousel className="alice-carousel"
         autoPlay autoPlayInterval={5000} infinite
         mouseTracking keyboardNavigation disableButtonsControls
         onSlideChanged={handleChange}
         activeIndex={props.currentSlide}
         items={easybaseData.map((i) =>
           <Link key={i.id} to={`/gallery/${i.id}`}>
-            <img className="CarouselImg" src={i.galleryimage} alt={i.title} onDragStart={handleDragStart}></img>
+            <img className="alice-carousel-img" src={i.galleryimage} alt={i.title} onDragStart={handleDragStart}></img>
           </Link>
         )}/>
     </div>

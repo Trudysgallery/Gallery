@@ -1,20 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { useEasybase } from 'easybase-react';
 import { queryProduct, fetchProductFromData } from '../../Utils/EasyBaseUtils';
-import { AddToCartButton } from '../AddToCartButton/AddToCartButton';
 import { useParams } from "react-router-dom";
 import './Product.css';
 
-
 function Product(props) {
-    const galleryData = props.galleryData;
+    const galleryData = props.data;
     const pid = useParams().productId;
     console.log("in Product with galleryData:", galleryData, "and pid: ", pid);
     const [currentProduct, setCurrentProduct] = useState();
     const [initialized, setInitialized] = useState(false);
     //const handleInitialized = (() => console.log("in handleInitialized"));
     const { db, e } = useEasybase();
-    
+
+    function handleAddToCart(){
+        props.onAddToCart(currentProduct);
+    }
+
     useEffect(() => {
         console.log("in Product.useEffect");
         if(galleryData.length>0){
@@ -44,17 +46,21 @@ function Product(props) {
         return <div></div>;
     }
     return(
-        <div className="currentProduct">
-            <div className="currentProductImagePageHalf">
-                <img className="currentProductImage" src={currentProduct.galleryimage} alt={currentProduct.title}></img>
+        <div className="current-product">
+            <div className="current-product-image-page-half">
+                <img className="current-product-image" src={currentProduct.galleryimage} alt={currentProduct.title}></img>
             </div>
-            <div className="currentProductTextPageHalf">
-                <div className="currentProductText">
-                    <h1 className="currentProductTitle">{currentProduct.title}</h1>
-                    <h2 className="currentProductPrice">${currentProduct.price}</h2>
-                    <p className="currentProductDescription">{currentProduct.description}</p>
-                    <AddToCartButton />
+            <div className="current-product-info-page-half">
+                <div className="current-product-text">
+                    <h1 className="current-product-title">{currentProduct.title}</h1>
+                    <h2 className="current-product-price">${currentProduct.price}</h2>
+                    <p className="current-product-description">{currentProduct.description}</p>
                 </div>
+                <div className="current-product-add-to-cart-section">
+                    <button className="current-product-add-to-cart-button" onClick={handleAddToCart}>
+                        Add to cart!
+                    </button>
+                </div>           
             </div>
         </div>
     );

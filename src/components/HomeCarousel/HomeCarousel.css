@@ -1,8 +1,8 @@
-.CarouselImg {
-    height: 350px;
-    border-radius: 10%;
-  }
-
-.HomeCarousel {
+.home-carousel-page {
   height: 100%;
+}
+
+.alice-carousel-img {
+  height: 350px;
+  border-radius: 10%;
 }
