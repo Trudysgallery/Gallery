@@ -1,6 +1,5 @@
 import React from "react";
 import './Welcome.css';
-import cat from './cat.svg';
 
 function Welcome(props) {
   return (

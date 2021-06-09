@@ -8,28 +8,24 @@ import './Gallery.css';
 
 function Gallery(props) {
   const galleryData = props.data;
-  console.log("In Gallery with data: ", galleryData);
+  const onLoadData = props.onLoadData;
   const [initialized, setInitialized] = useState(false);
   const handleDragStart = (e) => e.preventDefault();
-  //const handleInitialized = (() => console.log("in handleInitialized"));
   const { db } = useEasybase();
 
   useEffect(() => {
-    console.log("in Gallery.useEffect with data:", galleryData);
-    if(props.data.length===0){
+    if(galleryData.length===0){
       console.log("No Gallery data yet, querying...");
       queryGallery(db).then(
         (result) => {
-          props.onLoadData(result);
+          onLoadData(result);
         } 
       );
     }
     setInitialized(true);
-    // return function cleanup() {};
-  },[]);
+  },[db,onLoadData,galleryData]);
 
   if(!initialized){
-    console.log("In Gallery uninitialized.");
     return <div></div>;
   }
   return (

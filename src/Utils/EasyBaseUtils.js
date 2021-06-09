@@ -1,12 +1,22 @@
 
 const EB_PRODUCTS_TABLE = "ARTWORK";
+const QUERY_TIMEOUT=5000;
 
-export async function queryProduct(db, e, productId) {
+function timeout(ms) {
+    return new Promise((resolve, reject) => {
+      setTimeout(function () {
+        reject(new Error("Failed to find product"));
+      }, ms);
+    });
+  }
+
+export async function queryProductPromise(db, e, productId){
+    return await db(EB_PRODUCTS_TABLE).return().where(e.eq("id",productId)).one();
+}
+
+export async function queryProduct (db, e, productId)  {
     console.log("in EasyBaseUtils.queryProduct with pid: ", productId);
-    // Consider setting a timeout and rendering a placeholder product if url is wrong
-    const queriedProduct = await db(EB_PRODUCTS_TABLE).return().where(e.eq("id",productId)).one();
-    console.log("queriedProduct: ", queriedProduct);
-    return queriedProduct;
+    return await Promise.race([timeout(QUERY_TIMEOUT),queryProductPromise(db,e,productId)]);
 }
 
 export async function queryGallery(db) {
