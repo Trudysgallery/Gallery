@@ -44,9 +44,7 @@
 .current-product-add-to-cart-button {
     font-size: 50px;
 }
-.current-product-add-to-cart-button:focus {
-    background-color: green;
-}
+
 .current-product-add-to-cart-button:hover {
     background-color: green;
 }

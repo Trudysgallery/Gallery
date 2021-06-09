@@ -1,17 +1,19 @@
 .shopping-cart-item {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 1fr .5fr .5fr .1fr;
     align-items: center;
-    justify-content: space-around;
+
 }
 
 .shopping-cart-item-img {
     width: 200px;
+    height: 200px;
     border-radius: 20px;
 }
 
 .shopping-cart-item-title {
     color: blueviolet;
+    font-size: 32px;
 }
 .shopping-cart-item-title:hover {
     color: black;
@@ -25,5 +27,5 @@
     font-size: 1em;
 }
 .shopping-cart-remove-button:hover {
-    color: red
+    color: red;
 }

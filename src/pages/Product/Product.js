@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { useEasybase } from 'easybase-react';
 import { queryProduct, fetchProductFromData } from '../../Utils/EasyBaseUtils';
-import { useParams } from "react-router-dom";
+import { useHistory , useParams } from "react-router-dom";
 import './Product.css';
 
 function Product(props) {
-    const galleryData = props.data;
-    const pid = useParams().productId;
-    console.log("in Product with galleryData:", galleryData, "and pid: ", pid);
     const [currentProduct, setCurrentProduct] = useState();
     const [initialized, setInitialized] = useState(false);
-    //const handleInitialized = (() => console.log("in handleInitialized"));
     const { db, e } = useEasybase();
 
+    const galleryData = props.data;
+    let pid = useParams().productId;
+
+    let history = useHistory();
+
     function handleAddToCart(){
-        props.onAddToCart(currentProduct);
+        props.onAddToCart({"item":currentProduct,"operation":"add"});
     }
 
     useEffect(() => {
@@ -30,19 +31,16 @@ function Product(props) {
                 setInitialized(true);
             }).catch(
                 e => {
-                    alert("There was an error fetching this product. Please try again from the Gallery!");
-                    console.log("Product data cannot be found right now ,error: ", e);
+                    console.log(e);
+                    history.push("/gallery");
                 }
             );
         }
-        // return function cleanup(){};
-      },[]
+      },[db,e,galleryData,history,pid]
     );
 
-    //Pass the state in as props from the gallery. Use routing to set the URL as /products/title
-    //How can we ensure that accessing the URL directly also works? Need to have querying here in case the user didn't come from the gallery.
     if(!initialized){
-        console.log("In product !initialized");
+        console.log("In product !initialized!");
         return <div></div>;
     }
     return(

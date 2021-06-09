@@ -6,27 +6,51 @@ import Contact from './pages/Contact.js';
 import Gallery from './pages/Gallery.js'; 
 import Product from './pages/Product/Product';
 import Cart from './components/ShoppingCart/Cart';
-import NavBar from './components/Navbar/NavBar';
+import NavBar from './components/Navbar/NavBar.js';
 import HomeCarousel from './components/HomeCarousel/HomeCarousel.js'; 
+import Welcome from './components/Welcome/Welcome.js';
+import { addItemToCart, calculateCartSize, DecrementItemInCart, IncrementItemInCart, removeItemfromCart } from './Utils/CartUtils.js'; 
 import { EasybaseProvider } from 'easybase-react';
 import ebconfig from './ebconfig';
-import Welcome from './components/Welcome/Welcome.js'
 
 
 function App() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [shoppingCart, setShoppingCart] = useState([]);
+  const [shoppingCart, setShoppingCart] = useState([]); //Array of {info:{...},quantity:x}
   const [allProductData, setAllProductData] = useState([]);
 
-  function handleAddToShoppingCart(newItem){
-    setShoppingCart((oldCart) =>[...oldCart, newItem]);
+  const handleEditShoppingCart = ({item, operation}) => {
+    switch(operation){
+      case "add": handleAddShoppingCartItem(item);
+        break;
+      case "remove": handleRemoveShoppingCartItem(item);
+        break;
+      case "increment": handleIncrementShoppingCartItem(item);
+        break;
+      case "decrement": handleDecrementShoppingCartItem(item);
+        break;
+      default:
+    }
   }
 
-  function handleremoveFromShoppingCart(indexToRemove){
-    console.log("in App.handleremoveFromShoppingCart with cart", shoppingCart);
-    const newCart = shoppingCart.splice(indexToRemove,1);
-    console.log("Going to remove index", indexToRemove, " with newCart: ", newCart);
-    setShoppingCart(newCart);
+  const handleAddShoppingCartItem = (itemToAdd) => {
+    console.log("in handleAddShoppingCartItem");
+    setShoppingCart(addItemToCart(itemToAdd,shoppingCart));
+  }
+
+  const handleRemoveShoppingCartItem = (itemToRemove) => {
+    console.log("in handleRemoveShoppingCartItem");
+    setShoppingCart(removeItemfromCart(itemToRemove,shoppingCart));
+  }
+
+  const handleIncrementShoppingCartItem = (itemToIncrement) => {
+    console.log("in handleIncrementShoppingCartItem");
+    setShoppingCart(IncrementItemInCart(itemToIncrement,shoppingCart));
+  }
+
+  const handleDecrementShoppingCartItem = (itemToDecrement) => {
+    console.log("in handleDecrementShoppingCartItem");
+    setShoppingCart(DecrementItemInCart(itemToDecrement,shoppingCart));
   }
 
   return (
@@ -36,10 +60,10 @@ function App() {
           <Link to="/">
             <Welcome />
           </Link>
-          <NavBar cartSize={shoppingCart.length}/>
+          <NavBar cartSize={calculateCartSize(shoppingCart)}/>
           <Switch>
             <Route path="/gallery/:productId">
-              <Product data={allProductData} onAddToCart={handleAddToShoppingCart}/>
+              <Product data={allProductData} onAddToCart={handleEditShoppingCart}/>
             </Route>
             <Route path="/gallery">
               <Gallery data={allProductData} onLoadData={setAllProductData}/>
@@ -51,7 +75,7 @@ function App() {
               <Contact/> 
             </Route>
             <Route path="/cart">
-              <Cart currentCart={shoppingCart} onRemoveFromCart={handleremoveFromShoppingCart}/>
+              <Cart currentCart={shoppingCart} onEditCart={handleEditShoppingCart}/>
             </Route>
             <Route exact path="/">
               <HomeCarousel currentSlide={currentSlide} onSlideChanged={setCurrentSlide}/>

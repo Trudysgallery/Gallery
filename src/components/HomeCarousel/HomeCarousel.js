@@ -29,7 +29,7 @@ function HomeCarousel(props) {
       console.log("in HomeCarousel.cleanup()");
       setInitialized(false);
     };
-  },[]);
+  },[db]);
 
   if(!initialized){
     return <div></div>;
