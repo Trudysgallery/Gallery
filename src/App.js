@@ -72,7 +72,7 @@ function App() {
               <About/>
             </Route>
             <Route path="/contact">
-              <Contact/> 
+              <Contact currentCart={shoppingCart}/> 
             </Route>
             <Route path="/cart">
               <Cart currentCart={shoppingCart} onEditCart={handleEditShoppingCart}/>

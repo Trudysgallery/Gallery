@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useEasybase } from 'easybase-react';
-import { queryProduct, fetchProductFromData } from '../../Utils/EasyBaseUtils';
+import { fetchProductFromData, queryProduct } from '../../Utils/EasyBaseUtils.js';
+import { fetchNotNullImagesFromProduct } from '../../Utils/GeneralUtils.js';
 import { useHistory , useParams } from "react-router-dom";
+import ProductPictures from '../../components/ProductPictures/ProductPictures.js'
 import './Product.css';
 
 function Product(props) {
@@ -36,6 +38,11 @@ function Product(props) {
                 }
             );
         }
+        // queryProductImages(db,e,pid).then((productImages) => {
+        //     setCurrentProduct(prod => {
+        //         return {...prod, allimages:productImages}
+        //     });
+        // });
       },[db,e,galleryData,history,pid]
     );
 
@@ -46,7 +53,8 @@ function Product(props) {
     return(
         <div className="current-product">
             <div className="current-product-image-page-half">
-                <img className="current-product-image" src={currentProduct.galleryimage} alt={currentProduct.title}></img>
+                <ProductPictures images={fetchNotNullImagesFromProduct(currentProduct)} productTitle={currentProduct.title}/>
+                {/* <img className="current-product-image" src={currentProduct.galleryimage} alt={currentProduct.title}></img> */}
             </div>
             <div className="current-product-info-page-half">
                 <div className="current-product-text">
