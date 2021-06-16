@@ -13,7 +13,7 @@ import { addItemToCart, calculateCartSize, DecrementItemInCart, IncrementItemInC
 import { EasybaseProvider } from 'easybase-react';
 import ebconfig from './ebconfig';
 
-
+const DEVELOPMENT_MESSAGE="This site is under development. I appreciate your patience!"
 function App() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [shoppingCart, setShoppingCart] = useState([]); //Array of {info:{...},quantity:x}
@@ -81,6 +81,7 @@ function App() {
               <Gallery data={allProductData} onLoadData={setAllProductData}/>
             </Route>
           </Switch>
+          <p className='development-message'>{DEVELOPMENT_MESSAGE}</p>
         </div>
       </BrowserRouter>
     </EasybaseProvider>
