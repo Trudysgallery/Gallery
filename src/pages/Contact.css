@@ -1,12 +1,16 @@
-.makeArt{
+.contact-page {
+  align-items: center;
+}
+.contact-page-welcome-text{
     font-weight: lighter;
     font-family:'Dancing Script', cursive;
     font-size: 40px;
 }
 
-.contactForm{
+.contact-page-form{
     width: 500px;
     margin: auto;
+    align-items: center;
 }
 
 input {
@@ -39,3 +43,19 @@ input {
   label{
     font-size: 24px;
   }
+
+.contact-page-include-cart-checkbox{
+  display: grid;
+    grid-template-columns: .7fr .3fr;
+    justify-items: right;
+}
+
+.contact-page-submit-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contact-page-submit-button{
+  margin-top: 10px;
+  display: block;
+}

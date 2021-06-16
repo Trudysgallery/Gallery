@@ -13,3 +13,5 @@ export const IncrementItemInCart = (itemToIncrement,oldCart) => oldCart.map((ite
 const isItemInCart = (item,cart) => cart.some(e => e.productInfo.id===item.id);
 
 export const removeItemfromCart = (itemToRemove,oldCart) => oldCart.filter((item) => item.productInfo.id!==itemToRemove.id);
+
+export const  convertCartToEmail = (cart) => cart.reduce((accumulator,cartItem) => accumulator + cartItem.quantity + " " + cartItem.productInfo.title + ";","");
