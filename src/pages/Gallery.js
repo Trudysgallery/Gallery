@@ -15,7 +15,6 @@ function Gallery(props) {
 
   useEffect(() => {
     if(galleryData.length===0){
-      console.log("No Gallery data yet, querying...");
       queryGallery(db).then(
         (result) => {
           onLoadData(result);

@@ -52,7 +52,6 @@ const handleFormChange = (e) => {
 const handleCartCheckboxChange = (e) => {
   setIsCartIncluded(prevCheckState => !prevCheckState);
   let cartValToSendInEmail = e.currentTarget.checked ? convertCartToEmail(currentCart):{};
-  console.log(cartValToSendInEmail);
   setFeedback({
       ...feedback,
       feedbackCart: cartValToSendInEmail

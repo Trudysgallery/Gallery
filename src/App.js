@@ -34,22 +34,18 @@ function App() {
   }
 
   const handleAddShoppingCartItem = (itemToAdd) => {
-    console.log("in handleAddShoppingCartItem");
     setShoppingCart(addItemToCart(itemToAdd,shoppingCart));
   }
 
   const handleRemoveShoppingCartItem = (itemToRemove) => {
-    console.log("in handleRemoveShoppingCartItem");
     setShoppingCart(removeItemfromCart(itemToRemove,shoppingCart));
   }
 
   const handleIncrementShoppingCartItem = (itemToIncrement) => {
-    console.log("in handleIncrementShoppingCartItem");
     setShoppingCart(IncrementItemInCart(itemToIncrement,shoppingCart));
   }
 
   const handleDecrementShoppingCartItem = (itemToDecrement) => {
-    console.log("in handleDecrementShoppingCartItem");
     setShoppingCart(DecrementItemInCart(itemToDecrement,shoppingCart));
   }
 
@@ -78,7 +74,8 @@ function App() {
               <Cart currentCart={shoppingCart} onEditCart={handleEditShoppingCart}/>
             </Route>
             <Route exact path="/">
-              <HomeCarousel currentSlide={currentSlide} onSlideChanged={setCurrentSlide}/>
+              <Gallery data={allProductData} onLoadData={setAllProductData}/>
+              {/* <HomeCarousel currentSlide={currentSlide} onSlideChanged={setCurrentSlide}/> */}
             </Route>
             <Route>
               <Gallery data={allProductData} onLoadData={setAllProductData}/>

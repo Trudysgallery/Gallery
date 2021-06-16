@@ -8,7 +8,6 @@ function Cart(props) {
     const cart = props.currentCart;
     const handleEditCart = props.onEditCart;
     const sum = calculateCartTotalCost(cart);
-    console.log("in Cart with cart ", cart);
 
     if(cart.length===0){
         return(
