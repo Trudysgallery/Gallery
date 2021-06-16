@@ -78,7 +78,7 @@ const handleCartCheckboxChange = (e) => {
           <textarea onChange={handleFormChange} value={feedback.feedbackMessage} name="feedbackMessage" id="message" placeholder={PLACEHOLDER_MESSAGE} rows="5" cols="50" required />
         </div>
         <div className="contact-page-include-cart-checkbox">
-          <label htmlFor="cardCheckbox">Include current cart in message?</label>
+          <label htmlFor="cardCheckbox">Include current wishlist in message?</label>
           <input checked={isCartIncluded} onChange={handleCartCheckboxChange} type="checkbox" id="cardCheckbox" name="Include cart?" value={feedback.feedbackCart} />
         </div>
         <div className="contact-page-submit-section">

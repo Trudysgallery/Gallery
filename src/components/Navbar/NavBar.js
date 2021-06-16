@@ -9,7 +9,7 @@ function NavBar(props){
             <Link to="/about" className="nav-bar-item">About</Link>
             <Link to="/contact" className="nav-bar-item">Contact Me</Link>
             <div className="nav-bar-cart-icon">
-                <Link to="/cart" className="material-icons cart">shopping_cart</Link>
+                <Link to="/wishlist" className="material-icons cart">shopping_cart</Link>
                 <div className="nav-bar-cart-size">{cartSize}</div>
             </div>
         </nav>

@@ -70,7 +70,7 @@ function App() {
             <Route path="/contact">
               <Contact currentCart={shoppingCart}/> 
             </Route>
-            <Route path="/cart">
+            <Route path="/wishlist">
               <Cart currentCart={shoppingCart} onEditCart={handleEditShoppingCart}/>
             </Route>
             <Route exact path="/">
