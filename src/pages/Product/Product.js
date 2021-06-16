@@ -21,15 +21,12 @@ function Product(props) {
     }
 
     useEffect(() => {
-        console.log("in Product.useEffect");
         if(galleryData.length>0){
             setCurrentProduct(fetchProductFromData(galleryData, pid));
-            console.log("Initializing after setting product from data");
             setInitialized(true);
         } else {
             queryProduct(db,e,pid).then((queriedProduct) => {
                 setCurrentProduct(queriedProduct);
-                console.log("completed queryProduct");
                 setInitialized(true);
             }).catch(
                 e => {
@@ -47,7 +44,6 @@ function Product(props) {
     );
 
     if(!initialized){
-        console.log("In product !initialized!");
         return <div></div>;
     }
     return(

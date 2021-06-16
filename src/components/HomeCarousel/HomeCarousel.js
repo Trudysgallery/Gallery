@@ -18,7 +18,6 @@ function HomeCarousel(props) {
   }
 
   useEffect(() => {
-    console.log("in HomeCarousel.useEffect with currentSlide:");
     queryGallery(db).then(
       (galleryData) => {
         setEasybaseData(galleryData);
@@ -26,7 +25,6 @@ function HomeCarousel(props) {
       } 
     );
     return function cleanup() { 
-      console.log("in HomeCarousel.cleanup()");
       setInitialized(false);
     };
   },[db]);
