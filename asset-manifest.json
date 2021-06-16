@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/TrudyGallery/static/css/main.5dea9042.chunk.css",
+    "main.js": "/TrudyGallery/static/js/main.83d3e17d.chunk.js",
+    "main.js.map": "/TrudyGallery/static/js/main.83d3e17d.chunk.js.map",
+    "runtime-main.js": "/TrudyGallery/static/js/runtime-main.3cda054a.js",
+    "runtime-main.js.map": "/TrudyGallery/static/js/runtime-main.3cda054a.js.map",
+    "static/css/2.af3ab7ac.chunk.css": "/TrudyGallery/static/css/2.af3ab7ac.chunk.css",
+    "static/js/2.b2738134.chunk.js": "/TrudyGallery/static/js/2.b2738134.chunk.js",
+    "static/js/2.b2738134.chunk.js.map": "/TrudyGallery/static/js/2.b2738134.chunk.js.map",
+    "static/js/3.bdbbb3b8.chunk.js": "/TrudyGallery/static/js/3.bdbbb3b8.chunk.js",
+    "static/js/3.bdbbb3b8.chunk.js.map": "/TrudyGallery/static/js/3.bdbbb3b8.chunk.js.map",
+    "static/js/4.237bd8a1.chunk.js": "/TrudyGallery/static/js/4.237bd8a1.chunk.js",
+    "static/js/4.237bd8a1.chunk.js.map": "/TrudyGallery/static/js/4.237bd8a1.chunk.js.map",
+    "index.html": "/TrudyGallery/index.html",
+    "static/css/2.af3ab7ac.chunk.css.map": "/TrudyGallery/static/css/2.af3ab7ac.chunk.css.map",
+    "static/css/main.5dea9042.chunk.css.map": "/TrudyGallery/static/css/main.5dea9042.chunk.css.map",
+    "static/js/2.b2738134.chunk.js.LICENSE.txt": "/TrudyGallery/static/js/2.b2738134.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3cda054a.js",
+    "static/css/2.af3ab7ac.chunk.css",
+    "static/js/2.b2738134.chunk.js",
+    "static/css/main.5dea9042.chunk.css",
+    "static/js/main.83d3e17d.chunk.js"
+  ]
+}
