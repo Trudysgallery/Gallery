@@ -23,7 +23,7 @@ function CartItem(props) {
                 <Link className="shopping-cart-item-title-link" to={`/gallery/${product.id}`}>
                     <h2 className="shopping-cart-item-title">{product.title}</h2>
                 </Link>
-                <h2 className="shopping-cart-item-price">${product.price}</h2>
+                {/* <h2 className="shopping-cart-item-price">${product.price}</h2> */}
                 <CartItemCounter cartItemQuantity={productQuantity} onIncrementCartItem={handleIncrementCartItem} onDecrementCartItem={handleDecrementCartItem}/>
                 <button className="material-icons shopping-cart-remove-button" onClick={handleRemoveCartItem}>
                     remove_shopping_cart

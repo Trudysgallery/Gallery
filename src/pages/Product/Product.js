@@ -55,12 +55,12 @@ function Product(props) {
             <div className="current-product-info-page-half">
                 <div className="current-product-text">
                     <h1 className="current-product-title">{currentProduct.title}</h1>
-                    <h2 className="current-product-price">${currentProduct.price}</h2>
+                    {/* <h2 className="current-product-price">${currentProduct.price}</h2> */}
                     <p className="current-product-description">{currentProduct.description}</p>
                 </div>
                 <div className="current-product-add-to-cart-section">
                     <button className="current-product-add-to-cart-button" onClick={handleAddToCart}>
-                        Add to cart!
+                        Add to wishlist!
                     </button>
                 </div>           
             </div>
