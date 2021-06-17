@@ -16,11 +16,15 @@ function ProductPictures(props) {
         setCurrentPictureIndex(currentPictureIndex === maxIndex ? 0 : currentPictureIndex+1);                
     }
 
+    const rotateLeftButtonConditional = maxIndex===0 ? <div></div> : <span className="material-icons rotate-left-button" onClick={handleShiftImageLeft}>undo</span>;
+    const rotateRightButtonConditional = maxIndex===0 ? <div></div> : <span className="material-icons rotate-right-button" onClick={handleShiftImageRight}>undo</span>;
+ 
+
     return(
         <div className="product-pictures">
-            <span className="material-icons rotate-left-button" onClick={handleShiftImageLeft}>undo</span>
+            {rotateLeftButtonConditional}
             <img className="product-pictures-image" src={images[currentPictureIndex]} alt={"Pictures of " + productTitle}/>
-            <span className="material-icons rotate-right-button" onClick={handleShiftImageRight}>undo</span>
+            {rotateRightButtonConditional}
         </div>
     );
 }

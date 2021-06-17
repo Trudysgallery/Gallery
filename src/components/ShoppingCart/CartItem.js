@@ -17,8 +17,8 @@ function CartItem(props) {
     return(
         
             <div className="shopping-cart-item">
-                <Link to={`/gallery/${product.id}`}>
-                    <img className="shopping-cart-item-img" src={product.galleryimage} alt={product.title}></img>
+                <Link className='shopping-cart-item-img-link' to={`/gallery/${product.id}`}>
+                    <img className="shopping-cart-item-img" src={product.image1} alt={product.title}></img>
                 </Link>
                 <Link className="shopping-cart-item-title-link" to={`/gallery/${product.id}`}>
                     <h2 className="shopping-cart-item-title">{product.title}</h2>

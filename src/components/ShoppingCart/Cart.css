@@ -2,7 +2,7 @@
     margin: 0 auto;
     margin-top: 5px;
     margin-bottom: 5px;
-    width: 800px;
+    width: 80%;
     background-color: lightgray;
     border-radius: 20px;
     padding: 10px;
@@ -10,12 +10,17 @@
 
 .shopping-cart-items {
     display: grid;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    grid-auto-rows: 1fr;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.shopping-cart-checkout-button{
+    font-size: 2.5vw;
 }
 
 .shopping-cart-empty {
-    font-size: 48px;
-    margin-top: 30px;
+    font-size: 2.5vw;
+    margin-top: 5%;
     color: blueviolet;
 }

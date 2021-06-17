@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
 }
 
 .product-pictures-image {
@@ -12,12 +13,12 @@
 
 .material-icons.rotate-left-button {
     color: blueviolet;
-    font-size: 48px;
+    font-size: 3vw;
     transform: scaleX(-1)  rotate(100deg);
 }
 
 .material-icons.rotate-right-button {
     color: blueviolet;
-    font-size: 48px;
+    font-size: 3vw;
     transform: rotate(100deg);
 }

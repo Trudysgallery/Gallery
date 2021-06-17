@@ -30,7 +30,6 @@ export async function queryProductImages(db, e, productId)  {
 
 export async function queryGallery(db) {
     return await db(EB_PRODUCTS_TABLE).return().all();
-    //return await db(EB_PRODUCTS_TABLE).return("id","galleryimage").all();
 }
 
 export function fetchProductFromData(galleryData,productId) {
