@@ -1,28 +1,28 @@
 .current-product-image-page-half {
-    width: 50%;
     float: left;
+    width: 50%;
 }
 
 .current-product-image {
-    width: 100%;
     align-self: center;
     border-radius: 10%;
+    width: 100%;
 }
 
 .current-product-info-page-half {
-    width: 50%;
     display: flex;
     flex-direction: column;
+    width: 50%;
 }
 
 .current-product-text {
-    float: left;
     align-content: center;
+    float: left;
     margin-left: 20px;
-    color: black;
 }
 
 .current-product-title {
+    color: var(--main-header-text-color);
     font-size: 4vw;
     font-style: italic;
 }
@@ -32,19 +32,18 @@
 }
 
 .current-product-description {
+    color: var(--main-text-color);
+    font-family: var(--main-descriptive-text-font);
     font-size: 1.5vw;
-    font-family: Verdana, Tahoma, sans-serif;
+
 }
 .current-product-blurb {
+    color: var(--main-text-color);
+    font-family:  var(--main-descriptive-text-font);
     font-size: 1vw;
-    font-family: Verdana, Tahoma, sans-serif;
     font-style: italic;
 }
 
 .current-product-add-to-cart-button {
     font-size: 2vw;
-}
-
-.current-product-add-to-cart-button:hover {
-    background-color: green;
 }

@@ -23,7 +23,7 @@ function ProductPictures(props) {
     return(
         <div className="product-pictures">
             {rotateLeftButtonConditional}
-            <img className="product-pictures-image" src={images[currentPictureIndex]} alt={"Pictures of " + productTitle}/>
+            <img className="product-pictures-image" src={images[currentPictureIndex]} alt={"Pictures of " + productTitle} onClick={handleShiftImageRight}/>
             {rotateRightButtonConditional}
         </div>
     );

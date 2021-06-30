@@ -1,24 +1,30 @@
-.product-pictures{
+.product-pictures {
+    align-items: center;
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: center;
 }
 
 .product-pictures-image {
-    width: 60%;
     align-self: center;
     border-radius: 10%;
+    width: 60%;
+}
+
+.material-icons {
+    color: var(--main-button-color);
+    cursor: pointer;
+    font-size: 3vw;
+}
+
+.material-icons:hover {
+    color: var(--main-hover-color);
 }
 
 .material-icons.rotate-left-button {
-    color: blueviolet;
-    font-size: 3vw;
     transform: scaleX(-1)  rotate(100deg);
 }
 
 .material-icons.rotate-right-button {
-    color: blueviolet;
-    font-size: 3vw;
     transform: rotate(100deg);
 }

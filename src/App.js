@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 import About from './pages/About.js'; 
 import Contact from './pages/Contact.js'; 
 import Gallery from './pages/Gallery.js'; 
-import Product from './pages/Product/Product';
+import Product from './pages/Product.js';
 import Cart from './components/ShoppingCart/Cart';
 import NavBar from './components/Navbar/NavBar.js';
 // import HomeCarousel from './components/HomeCarousel/HomeCarousel.js'; 
@@ -14,7 +14,7 @@ import { EasybaseProvider } from 'easybase-react';
 import ebconfig from './ebconfig';
 
 function App() {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  //const [currentSlide, setCurrentSlide] = useState(0);
   const [shoppingCart, setShoppingCart] = useState([]); //Array of {info:{...},quantity:x}
   const [allProductData, setAllProductData] = useState([]);
 

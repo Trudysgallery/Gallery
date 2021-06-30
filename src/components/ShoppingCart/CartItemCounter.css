@@ -9,8 +9,8 @@
 }
 .cart-item-counter-button {
     height: 2.5vw;
-    width: 2.5vw;
-    text-align: center;
     line-height: 0px;
     padding: 0px;
+    text-align: center;
+    width: 2.5vw;
 }

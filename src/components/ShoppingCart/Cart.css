@@ -1,11 +1,11 @@
 .shopping-cart-box {
-    margin: 0 auto;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    width: 80%;
-    background-color: lightgray;
+    background-color:var(--main-box-color);
     border-radius: 20px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    margin-top: 5px;
     padding: 10px;
+    width: 80%;
 }
 
 .shopping-cart-items {
@@ -15,12 +15,12 @@
     margin-bottom: 2%;
 }
 
-.shopping-cart-checkout-button{
+.shopping-cart-checkout-button {
     font-size: 2.5vw;
 }
 
 .shopping-cart-empty {
+    color: var(--main-header-text-color);
     font-size: 2.5vw;
     margin-top: 5%;
-    color: blueviolet;
 }

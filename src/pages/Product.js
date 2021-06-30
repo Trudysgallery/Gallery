@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useEasybase } from 'easybase-react';
-import { fetchProductFromData, queryProduct } from '../../Utils/EasyBaseUtils.js';
-import { fetchNotNullImagesFromProduct } from '../../Utils/GeneralUtils.js';
+import { fetchProductFromData, queryProduct } from '../Utils/EasyBaseUtils.js';
+import { fetchNotNullImagesFromProduct } from '../Utils/GeneralUtils.js';
 import { useHistory , useParams } from "react-router-dom";
-import ProductPictures from '../../components/ProductPictures/ProductPictures.js'
+import ProductPictures from '../components/ProductPictures/ProductPictures.js'
 import './Product.css';
 
 const POT_BLURB = "All of my pots are painted with quality acrylic paint and primed before and after painting, so my art is here to stay even for outdoor pots!"
