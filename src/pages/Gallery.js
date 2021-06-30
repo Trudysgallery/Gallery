@@ -31,8 +31,8 @@ function Gallery(props) {
     <div className="gallery">
       <div className="gallery-images">
         {galleryData.map((i) =>
-          <Link key={i.id} to={`/gallery/${i.id}`}>
-            <img className="gallery-image" src={i.galleryimage} alt={i.title} onDragStart={handleDragStart}></img>
+          <Link key={i.id} to={`/gallery/${i.id}`} className="gallery-image-a">
+            <img className="gallery-image-img" src={i.image1} alt={i.title} onDragStart={handleDragStart}></img>
           </Link>
         )}
         </div>

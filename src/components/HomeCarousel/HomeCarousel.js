@@ -41,7 +41,7 @@ function HomeCarousel(props) {
         activeIndex={props.currentSlide}
         items={easybaseData.map((i) =>
           <Link key={i.id} to={`/gallery/${i.id}`}>
-            <img className="alice-carousel-img" src={i.galleryimage} alt={i.title} onDragStart={handleDragStart}></img>
+            <img className="alice-carousel-img" src={i.image1} alt={i.title} onDragStart={handleDragStart}></img>
           </Link>
         )}/>
     </div>

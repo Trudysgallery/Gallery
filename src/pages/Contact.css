@@ -1,61 +1,69 @@
 .contact-page {
   align-items: center;
 }
-.contact-page-welcome-text{
-    font-weight: lighter;
-    font-family:'Dancing Script', cursive;
-    font-size: 40px;
+
+.contact-page-welcome-text {
+  font-family: var(--main-text-font);
+  font-size: 2.5vw;
+  font-weight: lighter;
 }
 
-.contact-page-form{
-    width: 500px;
-    margin: auto;
-    align-items: center;
+.contact-page-form {
+  align-items: center;
+  margin: auto;
+  width: 60%;
 }
 
 input {
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 2px solid blueviolet;
-    border-radius: 4px;
-    width: 100%;
-  }
-  textarea {
-    border: 2px solid blueviolet;
-    border-radius: 4px;
-    font-family: Arial, sans-serif;
-    font-weight: lighter;
-    font-size: 16px;
-    outline: none;
-    width: 100%;
-  }
 
-  button{
-    background-color: blueviolet;
-    color: white;
-    border-radius: 4px;
-    font-family:'Dancing Script', cursive;
-    font-size: 24px;
-
-  }
-
-  label{
-    font-size: 24px;
-  }
-
-.contact-page-include-cart-checkbox{
-  display: grid;
-    grid-template-columns: .7fr .3fr;
-    justify-items: right;
+  border: 2px solid var(--main-header-text-color);
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin: 8px 0;
+  padding: 12px 20px;
+  width: 100%;
 }
+
+textarea {
+  border: 2px solid var(--main-header-text-color);
+  border-radius: 4px;
+  font-family: var(--main-descriptive-text-font);
+  font-weight: lighter;
+  font-size: 1.5vw;
+  outline: none;
+  width: 100%;
+}
+
+button{
+  background-color: var(--main-button-color);
+  border-radius: 4px;
+  color: var(--main-button-text-color);
+  font-family: var(--main-text-font);
+  font-size: 3vw;
+}
+
+label {
+  color: var(--main-header-text-color);
+  font-size: 2vw;
+}
+
+.contact-page-include-cart-checkbox {
+  display: grid;
+  grid-template-columns: .7fr .3fr;
+  justify-items: right;
+}
+
+input[type='checkbox'] {
+  height: 50%;
+}
+
 
 .contact-page-submit-section {
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 .contact-page-submit-button{
-  margin-top: 10px;
   display: block;
+  margin-top: 10px;
 }

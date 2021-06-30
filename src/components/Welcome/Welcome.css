@@ -11,9 +11,9 @@
 
 }
 .welcomeHeaderText {
+    color: var(--main-header-text-color); 
     display: inline-block;
-    font-size: 5rem;
-    color: blueviolet;
+    font-size: 4vw;
     font-weight: lighter;
     margin: auto;
 }

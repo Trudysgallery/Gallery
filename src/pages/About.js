@@ -7,10 +7,10 @@ const ABOUTBLURB3="Reach out to me to discuss making your idea a reality!";
 
 function About(props) {
   return (
-    <div className="aboutBlurb">
-      <p >{ABOUTBLURB1}</p>
-      <p >{ABOUTBLURB2}</p>
-      <p >{ABOUTBLURB3}</p>
+    <div className="about-blurb-div">
+      <p className="about-blurb-p">{ABOUTBLURB1}</p>
+      <p className="about-blurb-p">{ABOUTBLURB2}</p>
+      <p className="about-blurb-p">{ABOUTBLURB3}</p>
     </div>
   );
 }

@@ -1,13 +1,14 @@
+// References:
+// https://sheelahb.com/blog/how-to-send-email-from-react-without-a-backend/
+// https://www.geeksforgeeks.org/how-to-handle-multiple-input-field-in-react-form-with-a-single-function/
+
 import React, { useState } from "react";
 import EmailConfig from '../Utils/EmailConfig.js';
 import {convertCartToEmail} from '../Utils/CartUtils.js';
 import './Contact.css';
 
-
 const PLACEHOLDER_MESSAGE = "Contact me to order, discuss custom requests, or talk about anything! Please include your address if you would like to place an order.";
 const EMAIL_FAILED_ALERT = "Sorry, we could not send your message! Please email trudysgallery@gmail.com instead.";
-// Reference https://sheelahb.com/blog/how-to-send-email-from-react-without-a-backend/
-// https://www.geeksforgeeks.org/how-to-handle-multiple-input-field-in-react-form-with-a-single-function/
 
 function Contact(props) {
   const currentCart = props.currentCart;
@@ -16,7 +17,7 @@ function Contact(props) {
     feedbackName: '',
     feedbackEmail: '',
     feedbackMessage: '',
-    feedbackCart: {}
+    feedbackCart: convertCartToEmail(currentCart)
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formSubmitSuccessful, setFormSubmitSuccessful] = useState(false);
@@ -51,7 +52,7 @@ const handleFormChange = (e) => {
 
 const handleCartCheckboxChange = (e) => {
   setIsCartIncluded(prevCheckState => !prevCheckState);
-  let cartValToSendInEmail = e.currentTarget.checked ? convertCartToEmail(currentCart):{};
+  let cartValToSendInEmail = e.currentTarget.checked ? convertCartToEmail(currentCart):"Excluded";
   setFeedback({
       ...feedback,
       feedbackCart: cartValToSendInEmail

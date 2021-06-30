@@ -1,4 +1,5 @@
-.aboutBlurb{
-    font-family:'Dancing Script', cursive;
-    font-size: 40px;
+.about-blurb-p{
+    color: var(--main-text-color);
+    font-family: var(--main-text-font);
+    font-size: 2.5vw;
 }
