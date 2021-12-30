@@ -1,4 +1,10 @@
-# Getting Started with Create React App
+# Trudys Gallery
+My first website, a serverless single-page app using:
+React App
+EasyBase
+EmailJS
+
+# Create React App README:
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
